@@ -1,0 +1,327 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* src/index.css */
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('./assets/fonts/GoogleSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('./assets/fonts/GoogleSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('./assets/fonts/GoogleSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color:#040B18;
+    color: #e0e8f0;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #040B18;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1A2A45;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00A8FF;
+  }
+}
+
+@layer components {
+  .section-container {
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #00A8FF, #00FF9D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-glass {
+    background: rgba(10, 22, 40, 0.8);
+    border: 1px solid rgba(26, 42, 69, 0.8);
+    backdrop-filter: blur(10px);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 300ms;
+    background: linear-gradient(90deg, #00A8FF, #00D4FF);
+    color: #060D1F;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(0, 168, 255, 0.35);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: 1px solid;
+    transition: all 300ms;
+    border-color: rgba(0, 168, 255, 0.4);
+    color: #00A8FF;
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: rgba(0, 168, 255, 0.1);
+    border-color: #00A8FF;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 200ms;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(26, 42, 69, 0.9);
+    color: #e0e8f0;
+  }
+
+  .input-field::placeholder {
+    color: #4a5c78;
+  }
+
+  .input-field:focus {
+    border-color: #00A8FF;
+    background: rgba(0, 168, 255, 0.05);
+  }
+
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-family: monospace;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(0, 168, 255, 0.1);
+    border: 1px solid rgba(0, 168, 255, 0.2);
+    color: #00A8FF;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .opacity-0-init {
+    opacity: 0;
+  }
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+.input-figma {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: linear-gradient(180deg,
+      rgba(46, 197, 255, 0.18) 0%,
+      rgba(46, 197, 255, 0.05) 100%);
+  border: 1px solid rgba(46, 197, 255, 0.35);
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-figma::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-figma:focus {
+  border-color: #2ec5ff;
+  box-shadow: 0 0 0 1px rgba(46, 197, 255, 0.5),
+    0 0 20px rgba(46, 197, 255, 0.25);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.33%);
+  }
+}
+/* Phone Input - Match other form fields */
+.phone-input-wrapper .react-tel-input {
+  height: 46px;
+}
+
+.phone-input-wrapper .react-tel-input .form-control {
+  width: 100% !important;
+  height: 46px !important;
+  background: transparent !important;
+  border: none !important;
+  color: white !important;
+  font-size: 13px !important;
+  padding-left: 58px !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.phone-input-wrapper .react-tel-input .form-control::placeholder {
+  color: rgb(107, 114, 128) !important; /* matches placeholder:text-gray-500 */
+}
+
+.phone-input-wrapper .react-tel-input .flag-dropdown {
+  background: transparent !important;
+  border: none !important;
+  /* remove the border-right line entirely */
+  height: 42px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.phone-input-wrapper .react-tel-input .selected-flag {
+  width: 50px !important;
+  height: 42px !important;
+  padding: 0 8px 0 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 4px !important;
+  background: transparent !important;
+  border-radius: 12px 0 0 12px !important;
+}
+
+.phone-input-wrapper .react-tel-input .selected-flag:hover,
+.phone-input-wrapper .react-tel-input .selected-flag:focus {
+  background: rgba(46, 197, 255, 0.06) !important;
+}
+
+.phone-input-wrapper .react-tel-input .flag {
+  transform: scale(1.15) !important;
+  margin-right: 2px !important;
+}
+
+.phone-input-wrapper .react-tel-input .arrow {
+  border-top-color: rgba(46, 197, 255, 0.6) !important;
+  margin-left: 4px !important;
+}
+
+.phone-input-wrapper .react-tel-input .arrow.up {
+  border-bottom-color: rgba(46, 197, 255, 0.6) !important;
+}
+
+/* Dropdown list */
+.phone-input-wrapper .react-tel-input .country-list {
+  background-color: #050C1A !important;
+  border: 1px solid rgba(46, 197, 255, 0.2) !important;
+  border-radius: 8px !important;
+  color: white !important;
+  margin-top: 2px !important;
+}
+
+.phone-input-wrapper .react-tel-input .country-list .country:hover {
+  background-color: rgba(46, 197, 255, 0.08) !important;
+}
+
+.phone-input-wrapper .react-tel-input .country-list .country.highlight {
+  background-color: rgba(46, 197, 255, 0.12) !important;
+}
+
+.phone-input-wrapper .react-tel-input .country-list .dial-code {
+  color: rgba(46, 197, 255, 0.7) !important;
+}
+
+.phone-input-wrapper .react-tel-input .country-list .country-name {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
